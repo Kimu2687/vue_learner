@@ -1,10 +1,10 @@
 <template>
   <div class="home">
    Home
-   <p ref="p" class='test'>My name is {{name}} and my age is {{age}}</p>
+   <p ref="p" class='test'>My name is {{ninjaObject.name}} and my age is {{ninjaObject.age}}</p>
    <button @click="handleclick">handle click</button>
-     <button  @click="age++">Add age</button>
-   <input v-model="name">
+     <!-- <button  @click="ninjaObject.age++">Add age</button> -->
+   <input v-model="ninjaObject.name">
   </div>
 </template>
 
@@ -15,15 +15,20 @@ import {ref} from 'vue'
 export default {
   name: 'Home',
  setup(){
-const name=ref('mario')
-const age =ref(30)
+
+//USING OBJECTS
+const ninjaObject=ref({ name:'mario', age :'30'})
+
+
+
+
 //ADDING NEW REF
 const p=ref(null)
 const handleclick=()=>{
 //displaying ref value
   console.log(p,p.value)
-  name.value="brian"
-  age.value="27"
+  ninjaObject.value.name="brian"
+  ninjaObject.value.age="27"
   // alert(p.value)
 
   //ADDING CLASS TO ABOVE REF
@@ -34,7 +39,7 @@ const handleclick=()=>{
 
 
 return {
-  name,age,handleclick,p
+  handleclick,p,ninjaObject
 }
  }
 }
