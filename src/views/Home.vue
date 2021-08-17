@@ -3,6 +3,8 @@
    Home
    <p ref="p" class='test'>My name is {{name}} and my age is {{age}}</p>
    <button @click="handleclick">handle click</button>
+     <button  @click="age++">Add age</button>
+   <input v-model="name">
   </div>
 </template>
 
@@ -13,13 +15,15 @@ import {ref} from 'vue'
 export default {
   name: 'Home',
  setup(){
-let name='mario'
-let age =30
+const name=ref('mario')
+const age =ref(30)
 //ADDING NEW REF
 const p=ref(null)
 const handleclick=()=>{
 //displaying ref value
   console.log(p,p.value)
+  name.value="brian"
+  age.value="27"
   // alert(p.value)
 
   //ADDING CLASS TO ABOVE REF
